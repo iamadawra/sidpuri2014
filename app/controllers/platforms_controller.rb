@@ -3,6 +3,7 @@ class PlatformsController < ApplicationController
   # GET /platforms.json
   def index
     @platforms = Platform.all
+    @platforms = Platform.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -28,6 +29,7 @@ class PlatformsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @platform }
     end
   end
@@ -44,7 +46,7 @@ class PlatformsController < ApplicationController
 
     respond_to do |format|
       if @platform.save
-        format.html { redirect_to @platform, notice: 'Platform was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Platform was successfully created.' }
         format.json { render json: @platform, status: :created, location: @platform }
       else
         format.html { render action: "new" }

@@ -1,7 +1,7 @@
 Sid2014::Application.routes.draw do
   resources :platforms
 
-
+  get "platforms/new" => 'platforms#new', :as => :new
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

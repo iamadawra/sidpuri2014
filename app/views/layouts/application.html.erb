@@ -3,11 +3,15 @@
 <head>
   <title>Sid2014</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "modalbox" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "modalbox"%>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container" style="margin-top:2%;">
+<div class="container" style="margin-top:0%;">
 <%= yield %>
 </div>
 </body>
