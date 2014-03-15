@@ -3,12 +3,19 @@ class PlatformsController < ApplicationController
   # GET /platforms.json
   def index
     @platforms = Platform.all
-    @platforms = Platform.find(:all)
+    @platforms = Platform.find_with_reputation(:votes, :all, order: "votes desc")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @platforms }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @platform = Platform.find(params[:id])
+    @platform.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
   end
 
   # GET /platforms/1
@@ -82,4 +89,8 @@ class PlatformsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end 
 end

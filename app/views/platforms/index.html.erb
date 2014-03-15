@@ -18,37 +18,53 @@ $(document).ready(function(){
     $("#platform2").slideDown();
     $("#platform2-text").slideUp();
   });
+  $("#image-container-1").mouseenter (function(){
+    $("#gf").fadeOut("slow");
+    $("#logo").fadeIn("slow");
+  });
+  $("#image-container-1").mouseleave (function(){
+    $("#logo").fadeOut("slow");
+    $("#gf").fadeIn("slow");
+  });
+  
 });
 </script>
 <%- model_class = Platform -%>
-<div class="jumbotron" style="height:700px; background-color:black;">
+<div class="jumbotron" style="height:700px; background-color:white;">
   <div class="col-lg-12" style="padding-bottom:20px;padding-top:0px;">
-    <center>
-      <h1>#sid2014</h1>
-    </center>
   </div>
   <div class="col-lg-4" style="padding-right:30px;" id="parent-platform1">
-    <h2 id="platform1" style="cursor:pointer;margin-top:30%">Platform 1</h2>
+    <h2 id="platform1" style="cursor:pointer;margin-top:30%; text-shadow: 0 0 5px white;">Platform 1</h2>
     <p id="platform1-text" style="margin-top:10%;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
   </div>
   <div class="col-lg-4">
     <center>
-      <%= image_tag "gf.png", :id=>"gf" %>
+      <div id="image-container-1" style="height:300px">
+      <%= image_tag "gf-white.jpg", {:id=>"gf", :style=>"height:300px;z-index:5;position:absolute;"} %>
+      <%= image_tag "logo.jpg", {:id=>"logo", :style=>"height:300px;z-index:4;position:relative;"} %>
+      </div>
     </center>
   </div>
   <div class="col-lg-4" style="padding-left:70px;" id="parent-platform2">
-    <h2 id="platform2" style="cursor:pointer;margin-top:30%;">Platform 2</h2>
+    <h2 id="platform2" style="cursor:pointer;margin-top:30%;text-shadow: 0 0 5px white;">Platform 2</h2>
     <p id="platform2-text" style="margin-top:10%;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
   </div>
   <div style="min-height:160px;"></div>
   <div class="col-lg-12" style="padding-top:100px;">
     <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+    <p><a class="btn btn-danger btn-lg">Learn more</a></p>
   </div>
 </div>
 
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <span>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+  <span class="pull-right">
+    <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
+            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger"} %>
+          </h1>
+    </span>
+  </span>
 </div>
 <table class="table table-striped">
   <thead>
@@ -66,8 +82,12 @@ $(document).ready(function(){
         <td><%= link_to platform.id, platform_path(platform) %></td>
         <td><%= platform.name %></td>
         <td><%= platform.description %></td>
-        <td><%=l platform.created_at %></td>
+        <td><%= platform.created_at %></td>
+        <td><%= pluralize platform.reputation_for(:votes).to_i, "vote" %>
+      </td>
         <td>
+          <%= link_to "up", vote_platform_path(platform, type: "up"), method: "post" %>
+          <%= link_to "down", vote_platform_path(platform, type: "down"), method: "post" %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_platform_path(platform), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -80,6 +100,4 @@ $(document).ready(function(){
     <% end %>
   </tbody>
 </table>
-<%= link_to t('.new', :default => t("helpers.links.Add Platform")),
-            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-primary"} %>
-<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:40%; margin-top: 5%; margin-bottom:5%; max-width: 400px; max-height:400px; background-color:black;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:40%; margin-top: 5%; margin-bottom:5%; max-width: 400px; max-height:400px;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>

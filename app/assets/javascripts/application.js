@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap/modal
+//= require jquery.flippy.js
 //= require_tree .
