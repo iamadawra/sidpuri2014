@@ -62,19 +62,16 @@ $(document).ready(function(){
   <span>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
   <span class="pull-right">
+    <%= form_tag platforms_path, :method => "get" do %>
+        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:40px;font-size:20px;" %>
+    
     <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
             new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger"} %>
+    <% end %>
           </h1>
     </span>
   </span>
 </div>
-
-<%= form_tag platforms_path, :method => "get" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil, :class => "btn btn-mini btn-danger" %>
-  </p>
-<% end %>
 
 <table class="table table-striped">
   <thead>
