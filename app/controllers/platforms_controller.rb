@@ -2,8 +2,8 @@ class PlatformsController < ApplicationController
   # GET /platforms
   # GET /platforms.json
   def index
-    @platforms = Platform.all
-    @platforms = Platform.find_with_reputation(:votes, :all, order: "votes desc")
+    @topics = Platform.find_with_reputation(:votes, :all, order: "votes desc")
+    @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # index.html.erb
