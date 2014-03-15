@@ -75,7 +75,7 @@ $(document).ready(function(){
     <%= submit_tag "Search", :name => nil, :class => "btn btn-mini btn-danger" %>
   </p>
 <% end %>
-  <%= paginate @platforms %>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -110,4 +110,7 @@ $(document).ready(function(){
     <% end %>
   </tbody>
 </table>
+<center>
+  <%= paginate @platforms %>
+</center>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:40%; margin-top: 5%; margin-bottom:5%; max-width: 400px; max-height:400px;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba; background-color:white;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>
