@@ -29,6 +29,8 @@ $(document).ready(function(){
   
 });
 </script>
+<%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' %>
+<%= javascript_include_tag 'rails.js' %>
 <%- model_class = Platform -%>
 <div class="jumbotron" style="height:700px; background-color:white;">
   <div class="col-lg-12" style="padding-bottom:20px;padding-top:0px;">
@@ -66,7 +68,14 @@ $(document).ready(function(){
     </span>
   </span>
 </div>
-<%= paginate @platforms %>
+
+<%= form_tag platforms_path, :method => "get" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-mini btn-danger" %>
+  </p>
+<% end %>
+  <%= paginate @platforms %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -77,8 +86,7 @@ $(document).ready(function(){
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
-  <tbody>
+  </tbody>
     <% @platforms.each do |platform| %>
       <tr>
         <td><%= link_to platform.id, platform_path(platform) %></td>

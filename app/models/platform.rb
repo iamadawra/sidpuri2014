@@ -14,4 +14,12 @@ class Platform < ActiveRecord::Base
 
   has_reputation :votes, source: :user, aggregated_by: :sum
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
 end
