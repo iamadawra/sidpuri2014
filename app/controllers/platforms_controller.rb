@@ -4,8 +4,16 @@ class PlatformsController < ApplicationController
   # GET /platforms
   # GET /platforms.json
   def index
+    # Default sort by platform
+    @sortedBy = "platform"
     @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
     @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
+    
+    if (params[:sort] == "recent")
+      @sortedBy = "recent"
+      @topics = Platform.find( :all, :order => "created_at DESC")
+      @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

@@ -98,6 +98,15 @@ $(document).ready(function(){
   </span>
 </div>
 
+<%#= button_tag "View Top Platforms", :class => "btn btn-danger"%> 
+Sort by: <br>
+<ul class="nav nav-pills">
+  <!-- <li class="active"><a href="#">Top Platforms</a></li>
+  <li><a href="#">Most Recent</a></li> -->
+  <li class="<%= 'active' if @sortedBy == 'platform' %>"><%= link_to "Top Platforms", :sort => "platforms"%></li>
+  <li class="<%= 'active' if @sortedBy == 'recent' %>"><%= link_to "Most Recent", :sort => "recent"%></li>
+</ul>
+
 <table class="table table-striped">
   </tbody>
     <% @platforms.each do |platform| %>
