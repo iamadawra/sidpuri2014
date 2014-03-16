@@ -3,8 +3,15 @@ class PlatformsController < ApplicationController
   # GET /platforms
   # GET /platforms.json
   def index
-    @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
-    @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(1)
+    if (params[:sort] == "platforms")
+      logger.debug "PPP"
+      @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
+      @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
+    elsif (params[:sort] == "recent")
+      logger.debug "RRR"
+      @topics = Platform.find( :all, :order => "created_at DESC")
+      @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
