@@ -56,9 +56,10 @@ $(document).ready(function(){
       <%end%>
     <% end -%>
   </div>
-  <div class="col-lg-4" style="padding-right:30px;" id="parent-platform1">
-    <h2 id="platform1" style="cursor:pointer;margin-top:30%; text-shadow: 0 0 5px white;">Recruiting</h2>
-    <p id="platform1-text" style="margin-top:10%;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
+  <div class="col-lg-4" style="padding-right:30px;height:250px" id="parent-platform1">
+    <center>
+    <h2 id="platform1" style="cursor:pointer;margin-top:30%; text-shadow: 0 0 5px white;">Recruiting</h2></center>
+    <p id="platform1-text" style="margin-top:10%;"><small>Job hunting is a daunting process and navigating Callisto shouldn’t be an added bother. As an international student, opportunities I’m eligible for are hard to come by. In an effort to easily identify these limited opportunities and simplify the job hunt process, I have been working on a student-friendly portal that addresses the information gap between students and jobs they’re eligible for, in order to uncomplicate the job-hunt process. </small></p>
   </div>
   <div class="col-lg-4">
     <center>
@@ -68,14 +69,16 @@ $(document).ready(function(){
       </div>
     </center>
   </div>
-  <div class="col-lg-4" style="padding-left:70px;" id="parent-platform2">
-    <h2 id="platform2" style="cursor:pointer;margin-top:30%;text-shadow: 0 0 5px white;">Service</h2>
-    <p id="platform2-text" style="margin-top:10%;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
+  <div class="col-lg-4" style="padding-left:30px; height:250px" id="parent-platform2">
+    <center>
+    <h2 id="platform2" style="cursor:pointer;margin-top:30%;text-shadow: 0 0 5px white;">Service</h2></center>
+    <p id="platform2-text" style="margin-top:10%;"><small>Cal’s diversity and culture aligns itself with a lot of causes and communities that require volunteers’ support. Service on our campus needs more attention and man power and with that in mind, I’m working on a cohesive system, more use-friendly than CalLink to access all these opportunities. I hope to create easier access to ASUC funding, simplify new member recruitment and enable regular town halls to build on this collaboration and enhance group innovation. </small></p>
   </div>
   <center>
-  <div class="col-lg-12" style="padding-top:20px; height:100px; margin-top:80px;" id="parent-platform3">
-    <h2 id="platform3" style="cursor:pointer;margin-top:20px;text-shadow: 0 0 5px white;">Crowdsourcing</h2>
-    <p id="platform3-text" style="margin-top:0px;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
+  <div class="col-lg-12" style="height:200px"></div>
+  <div class="col-lg-12" style="padding-top:0px; height:100px; margin-top:0px;" id="parent-platform3">
+    <h2 id="platform3" style="cursor:pointer;margin-top:0px;text-shadow: 0 0 5px white;">Crowdsourcing</h2>
+    <p id="platform3-text" style="margin-top:0px;"><small>The ASUC overlooks a very large student population. The concerns of students who aren’t politically galvanized aren’t always heard. I hope to make my third platform democratic from the get-go. It will be chosen by the students. I want to ensure that I represent everyone’s interests and that everyone is encouraged to participate. </small></p>
   </div>
   </center>
 </div>
@@ -83,28 +86,30 @@ $(document).ready(function(){
 <div class="page-header">
   <span>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
-  <span class="pull-right">
-    <%= form_tag platforms_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:40px;font-size:20px;" %>
-    
-    <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
-            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger"} %>
-    <% end %>
-          </h1>
-    </span>
   </span>
 </div>
 
 <%#= button_tag "View Top Platforms", :class => "btn btn-danger"%> 
-Sort by: <br>
-<ul id="pills" class="nav nav-pills">
+<div>
+<span class="pull-left" style="padding-bottom:15px;">
+<ul class="nav nav-pills orange">
   <!-- <li class="active"><a href="#">Top Platforms</a></li>
   <li><a href="#">Most Recent</a></li> -->
-  <li id="topPlatforms" class="<%= 'active' if @sortedBy == 'platform' %>"><%= link_to "Top Platforms", :sort => "platforms", :remote => true %></li>
-  <li id="mostRecent" class="<%= 'active' if @sortedBy == 'recent' %>"><%= link_to "Most Recent", :sort => "recent", :remote => true%></li>
+  <li id="topPlatforms" class="<%= 'active' if @sortedBy == 'platform' %>"><%= link_to "Top Platforms", :sort => "platforms", :remote=> true%></li>
+  <li id="mostRecent" class="<%= 'active' if @sortedBy == 'recent' %>" ><%= link_to "Most Recent", :sort => "recent", :remote=>true%></li>
 </ul>
-
-<div id="platforms">
+</span>
+<span class="pull-right">
+    <%= form_tag platforms_path, :method => "get" do %>
+        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:40px;font-size:20px;" %>
+    
+    <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
+            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger", :style=>"margin-top:0px;"} %>
+    <% end %>
+          </h1>
+    </span>
+</div>
+<div id="platforms" class="col-lg-12">
   <%= render :partial => "platformsTable" %>
 </div>
 <center>
