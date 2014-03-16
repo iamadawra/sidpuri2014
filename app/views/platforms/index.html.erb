@@ -95,8 +95,8 @@ $(document).ready(function(){
 <ul class="nav nav-pills orange">
   <!-- <li class="active"><a href="#">Top Platforms</a></li>
   <li><a href="#">Most Recent</a></li> -->
-  <li class="<%= 'active' if @sortedBy == 'platform' %>"><%= link_to "Top Platforms", :sort => "platforms", :remote=> true%></li>
-  <li class="<%= 'active' if @sortedBy == 'recent' %>" ><%= link_to "Most Recent", :sort => "recent", :remote=>true%></li>
+  <li id="topPlatforms" class="<%= 'active' if @sortedBy == 'platform' %>"><%= link_to "Top Platforms", :sort => "platforms", :remote=> true%></li>
+  <li id="mostRecent" class="<%= 'active' if @sortedBy == 'recent' %>" ><%= link_to "Most Recent", :sort => "recent", :remote=>true%></li>
 </ul>
 </span>
 <span class="pull-right">
