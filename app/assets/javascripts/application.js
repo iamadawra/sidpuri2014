@@ -24,3 +24,15 @@
 //     e.preventDefault();
 //   });
 // });
+
+$(function () {
+	$("#topPlatforms").on("click", function (e) { 
+		$(this).addClass("active").removeClass("") 
+		$("#mostRecent").addClass("").removeClass("active")
+	})
+
+	$("#mostRecent").on("click", function (e) { 
+		$(this).addClass("active").removeClass("") 
+		$("#topPlatforms").addClass("").removeClass("active")
+	})
+})

@@ -1,0 +1,33 @@
+<%- model_class = Platform -%>
+<table class="table table-striped">
+  </tbody>
+    <% @platforms.each do |platform| %>
+      <tr>
+        <td style="width:60%">
+          <h3><%= platform.name %></h3>
+          <div class="platform-info">
+            <% if !platform.organization.nil? %>
+              <h5>Organization </h5><%= platform.organization if !platform.organization != "" %><%= "None" if platform.organization =="" %><br>
+            <%end%>
+            <span style="display:inline;"><h5>Description </h5><%= platform.description %></span>
+        </td>
+        <td style="width:10%;">
+          <div style="padding-top:30px;">
+          <h4><%= pluralize platform.reputation_for(:votes).to_i, "vote" %></h4>
+        </div>
+      </td>
+        <td>
+          <div style="padding-top:20px;" class="pull-right">
+          <span>
+          <%= link_to "Vote FOR", vote_platform_path(platform, type: "up"), method: "post", class: "btn btn-success" %>
+        </span>
+        <span style="width:50px;"></span>
+        <span>
+          <%= link_to "Vote AGAINST", vote_platform_path(platform, type: "down"), method: "post", class: "btn btn-primary" %>
+        </span>
+        </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
