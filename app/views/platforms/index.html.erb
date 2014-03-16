@@ -26,13 +26,11 @@ $(document).ready(function(){
     $("#logo").fadeOut("slow");
     $("#gf").fadeIn("slow");
   });
-  $("#login_as_guest").click(function () {
-    alert("Logged in as guest!");
-  })();
+  $(".guest_login").one("click", function() {
+    alert( "This will be displayed only once." );
+  });
 });
 </script>
-<%= javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js' %>
-<%= javascript_include_tag 'rails.js' %>
 <%- model_class = Platform -%>
 <div class="jumbotron" style="height:700px; background-color:white;">
   <div class="col-lg-12" style="padding-bottom:20px;padding-top:0px;">
@@ -110,8 +108,8 @@ $(document).ready(function(){
         <td><%= pluralize platform.reputation_for(:votes).to_i, "vote" %>
       </td>
         <td>
-          <%= link_to "up", vote_platform_path(platform, type: "up"), method: "post" %>
-          <%= link_to "down", vote_platform_path(platform, type: "down"), method: "post" %>
+          <%= link_to "up", vote_platform_path(platform, type: "up"), method: "post", class: "guest_login" %>
+          <%= link_to "down", vote_platform_path(platform, type: "down"), method: "post", class: "guest_login" %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_platform_path(platform), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
