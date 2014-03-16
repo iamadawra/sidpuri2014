@@ -16,7 +16,7 @@ class PlatformsController < ApplicationController
   def vote
     value = params[:type] == "up" ? 1 : -1
     @platform = Platform.find(params[:id])
-    #Replicate this line in console to update votes manually
+    #Replicate this line in console to update votes
     @platform.add_or_update_evaluation(:votes, value, current_user)
     redirect_to :back, notice: "Thank you for voting"
   end

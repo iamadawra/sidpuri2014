@@ -4,17 +4,32 @@
 </div>
 <div class="modal-body">
   <%= form_for @platform, {:class => 'form-horizontal', :id=>"platform-form"} do |f| %>
+      <div class="control-group">
+	    <%= f.label :email, "Your Berkeley Email", :class => 'control-label' %>
+	    <span class="controls">
+	      <%= f.text_field :email, :class => 'text_field' %>
+	    </span>
+	    <span class="help-block" style="padding-left:8%; padding-right:10%">Don't worry, we will not disclose your email address or store it! It is simply to verify that you are a Berkeley student.</span>
+	  </div>
+	  <div style="height:20px;"></div>
 	  <div class="control-group">
-	    <%= f.label :name, :class => 'control-label' %>
+	    <%= f.label :name, "Your Platform Name", :class => 'control-label' %>
 	    <span class="controls">
 	      <%= f.text_field :name, :class => 'text_field' %>
 	    </span>
 	  </div>
 	  <div style="height:20px;"></div>
 	  <div class="control-group">
+	    <%= f.label :organization, "Organization (if any)", :class => 'control-label' %>
+	    <span class="controls">
+	      <%= f.text_field :organization, :class => 'text_field' %>
+	    </span>
+	  </div>
+	  <div style="height:20px;"></div>
+	  <div class="control-group">
 	    <%= f.label :description, :class => 'control-label' %>
 	    <span class="controls">
-	      <%= f.text_area :description, {:class => 'form-control' ,:rows=>'3', } %>
+	      <%= f.text_area :description, {:class => 'form-control' ,:rows=>'3', :placeholder=>"Briefly describe your platform.."} %>
 	    </span>
 	  </div>
 	  <div style="height:20px;"></div>
