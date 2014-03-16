@@ -12,6 +12,16 @@ class PlatformsController < ApplicationController
     end
   end
 
+  def admin
+    @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
+    @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @platforms }
+    end
+  end
+
   def vote
     value = params[:type] == "up" ? 1 : -1
     @platform = Platform.find(params[:id])

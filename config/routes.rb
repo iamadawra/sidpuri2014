@@ -8,6 +8,8 @@ Sid2014::Application.routes.draw do
 
   root :to => "platforms#index"
 
+  get "/admin" => 'platforms#admin'
+
   get "platforms/new" => 'platforms#new', :as => :new
   # The priority is based upon order of creation:
   # first created -> highest priority.
