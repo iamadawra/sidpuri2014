@@ -11,7 +11,7 @@
 
 class Platform < ActiveRecord::Base
   attr_accessible :description, :name
-
+  validates_presence_of :name, :description
   has_reputation :votes, source: :user, aggregated_by: :sum
 
   def self.search(search)

@@ -34,6 +34,21 @@ $(document).ready(function(){
 <%- model_class = Platform -%>
 <div class="jumbotron" style="height:700px; background-color:white;">
   <div class="col-lg-12" style="padding-bottom:20px;padding-top:0px;">
+
+    <% flash.each do |name, msg| -%>
+      <% if name == :error %>
+        <% name = "alert alert-dismissable alert-danger" %>
+        <% error_string = "Sorry your Platform could not be added because of the following errors: <br><ul>" %>
+        <% msg.each do |error| %>
+          <% error_string = error_string + "<li>"+ error + "</li>" %>
+        <% end %>
+        <% error_string = error_string + "</ul>" %>
+      <%= content_tag :div, error_string.html_safe, class: name %>
+      <% elsif name == :success %>
+        <% name = "alert alert-dismissable alert-success" %>
+        <%= content_tag :div, msg, class: name %>
+      <%end%>
+    <% end -%>
   </div>
   <div class="col-lg-4" style="padding-right:30px;" id="parent-platform1">
     <h2 id="platform1" style="cursor:pointer;margin-top:30%; text-shadow: 0 0 5px white;">Platform 1</h2>

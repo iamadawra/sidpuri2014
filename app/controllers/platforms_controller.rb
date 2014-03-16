@@ -50,14 +50,28 @@ class PlatformsController < ApplicationController
   # POST /platforms.json
   def create
     @platform = Platform.new(params[:platform])
+    @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
+    @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(5)
 
     respond_to do |format|
       if @platform.save
-        format.html { redirect_to action: "index", notice: 'Platform was successfully created.' }
+        format.html { 
+          flash[:success] = "Congratulations! Your Platform was successfully created!"
+          redirect_to action: "index"
+        }
         format.json { render json: @platform, status: :created, location: @platform }
       else
-        format.html { render action: "new" }
-        format.json { render json: @platform.errors, status: :unprocessable_entity }
+        format.html{
+          if @platform.errors.any?
+            @platform_errors = @platform.errors.full_messages
+          end
+          flash[:error] = @platform_errors
+          @platform.destroy
+          render "index"
+        }
+        
+        #format.html { render action: "new" }
+        #format.json { render json: @platform.errors, status: :unprocessable_entity }
       end
     end
   end

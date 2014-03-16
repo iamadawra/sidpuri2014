@@ -3,7 +3,7 @@
   <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
 <div class="modal-body">
-  <%= form_for @platform, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= form_for @platform, {:class => 'form-horizontal', :id=>"platform-form"} do |f| %>
 	  <div class="control-group">
 	    <%= f.label :name, :class => 'control-label' %>
 	    <span class="controls">

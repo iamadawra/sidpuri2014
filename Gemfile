@@ -13,6 +13,8 @@ group :production do
 end
 gem 'annotate'
 
+gem 'google-analytics-rails'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'bootstrap-sass', '~> 3.1.1'
