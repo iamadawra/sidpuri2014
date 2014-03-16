@@ -5,7 +5,7 @@
 <div class="modal-body">
   <%= form_for @platform, {:class => 'form-horizontal', :id=>"platform-form"} do |f| %>
       <div class="control-group">
-	    <%= f.label :email, "Your Berkeley Email", :class => 'control-label' %>
+	    <%= f.label :email, "Your Berkeley Email *", :class => 'control-label' %>
 	    <span class="controls">
 	      <%= f.text_field :email, :class => 'text_field' %>
 	    </span>
@@ -13,7 +13,7 @@
 	  </div>
 	  <div style="height:20px;"></div>
 	  <div class="control-group">
-	    <%= f.label :name, "Your Platform Name", :class => 'control-label' %>
+	    <%= f.label :name, "Your Platform Name *", :class => 'control-label' %>
 	    <span class="controls">
 	      <%= f.text_field :name, :class => 'text_field' %>
 	    </span>
@@ -27,7 +27,7 @@
 	  </div>
 	  <div style="height:20px;"></div>
 	  <div class="control-group">
-	    <%= f.label :description, :class => 'control-label' %>
+	    <%= f.label :description, "Description *", :class => 'control-label' %>
 	    <span class="controls">
 	      <%= f.text_area :description, {:class => 'form-control' ,:rows=>'3', :placeholder=>"Briefly describe your platform.."} %>
 	    </span>
@@ -39,6 +39,9 @@
 	                platforms_path, :class => 'btn btn-default' %>
 	    <%= f.submit nil, :class => 'btn btn-danger' %>
 	    </center>
+	  </div>
+	  <div style="margin-top:15px;" class="help-block">
+	  	* - Required Fields
 	  </div>
   <% end %>
 </div>
