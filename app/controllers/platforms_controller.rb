@@ -1,4 +1,5 @@
 class PlatformsController < ApplicationController
+  http_basic_authenticate_with name: "sid2014admin", password: "siduction2014", except: [:index, :new, :create, :vote]
   before_filter :create_guest_if_needed
   # GET /platforms
   # GET /platforms.json
