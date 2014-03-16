@@ -5,7 +5,7 @@ class PlatformsController < ApplicationController
   # GET /platforms.json
   def index
     @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
-    @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(5)
+    @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
