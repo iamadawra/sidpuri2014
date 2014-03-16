@@ -18,6 +18,14 @@ $(document).ready(function(){
     $("#platform2").slideDown();
     $("#platform2-text").slideUp();
   });
+  $("#parent-platform3").mouseenter (function(){
+    $("#platform3").slideUp();
+    $("#platform3-text").slideDown();
+  });
+  $("#parent-platform3").mouseleave (function(){
+    $("#platform3").slideDown();
+    $("#platform3-text").slideUp();
+  });
   $("#image-container-1").mouseenter (function(){
     $("#gf").fadeOut("slow");
     $("#logo").fadeIn("slow");
@@ -63,11 +71,12 @@ $(document).ready(function(){
     <h2 id="platform2" style="cursor:pointer;margin-top:30%;text-shadow: 0 0 5px white;">Service</h2>
     <p id="platform2-text" style="margin-top:10%;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
   </div>
-  <div style="min-height:160px;"></div>
-  <div class="col-lg-12" style="padding-top:100px;">
-    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <p><a class="btn btn-danger btn-lg">Learn more</a></p>
+  <center>
+  <div class="col-lg-12" style="padding-top:20px; height:100px;" id="parent-platform3">
+    <h2 id="platform3" style="cursor:pointer;margin-top:10%;text-shadow: 0 0 5px white;">Crowdsourcing</h2>
+    <p id="platform3-text" style="margin-top:10%;"><small>Nullam quis risus eget <a href="#">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</small></p>
   </div>
+  </center>
 </div>
 
 <div class="page-header">
