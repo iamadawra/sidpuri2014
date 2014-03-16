@@ -35,6 +35,14 @@ $(document).ready(function(){
     $("#logo").fadeOut("slow");
     $("#gf").fadeIn("slow");
   });
+  $("#topPlatforms").on("click", function (e) { 
+    $(this).addClass("active").removeClass("") 
+    $("#mostRecent").addClass("").removeClass("active")
+  })
+  $("#mostRecent").on("click", function (e) { 
+    $(this).addClass("active").removeClass("") 
+    $("#topPlatforms").addClass("").removeClass("active")
+  })
 });
 </script>
 <%- model_class = Platform -%>
