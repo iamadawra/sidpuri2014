@@ -26,9 +26,6 @@ $(document).ready(function(){
     $("#logo").fadeOut("slow");
     $("#gf").fadeIn("slow");
   });
-  $(".guest_login").one("click", function() {
-    alert( "This will be displayed only once." );
-  });
 });
 </script>
 <%- model_class = Platform -%>
@@ -125,6 +122,5 @@ $(document).ready(function(){
 <center>
   <%= paginate @platforms %>
 </center>
-<p><%= button_to "Guest user!", users_path, method: :post, :id=>"login_as_guest", :style=>"display:none;" %></p>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:30%; margin-top: 5%; margin-bottom:5%; max-width: 600px; max-height:600px;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba; background-color:white;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>
 

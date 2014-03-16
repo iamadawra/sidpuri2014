@@ -1,6 +1,5 @@
 class PlatformsController < ApplicationController
-
-
+  before_filter :create_guest_if_needed
   # GET /platforms
   # GET /platforms.json
   def index
