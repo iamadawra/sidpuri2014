@@ -25,7 +25,7 @@
 //   });
 // });
 
-$(function () {
+$(document).ready(function() {
 	$("#topPlatforms").on("click", function (e) { 
 		$(this).addClass("active").removeClass("") 
 		$("#mostRecent").addClass("").removeClass("active")
