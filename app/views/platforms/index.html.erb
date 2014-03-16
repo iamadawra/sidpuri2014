@@ -86,26 +86,27 @@ $(document).ready(function(){
 <div class="page-header">
   <span>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
-  <span class="pull-right">
-    <%= form_tag platforms_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:40px;font-size:20px;" %>
-    
-    <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
-            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger"} %>
-    <% end %>
-          </h1>
-    </span>
   </span>
 </div>
 
 <%#= button_tag "View Top Platforms", :class => "btn btn-danger"%> 
-Sort by: <br>
-<ul class="nav nav-pills">
+<span class="pull-left" style="padding-bottom:15px;">
+<ul class="nav nav-pills orange">
   <!-- <li class="active"><a href="#">Top Platforms</a></li>
   <li><a href="#">Most Recent</a></li> -->
   <li class="<%= 'active' if @sortedBy == 'platform' %>"><%= link_to "Top Platforms", :sort => "platforms"%></li>
-  <li class="<%= 'active' if @sortedBy == 'recent' %>"><%= link_to "Most Recent", :sort => "recent"%></li>
+  <li class="<%= 'active' if @sortedBy == 'recent' %>" ><%= link_to "Most Recent", :sort => "recent"%></li>
 </ul>
+</span>
+<span class="pull-right">
+    <%= form_tag platforms_path, :method => "get" do %>
+        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:40px;font-size:20px;" %>
+    
+    <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
+            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger", :style=>"margin-top:0px;"} %>
+    <% end %>
+          </h1>
+    </span>
 
 <table class="table table-striped">
   </tbody>
