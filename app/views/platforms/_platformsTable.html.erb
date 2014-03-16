@@ -19,11 +19,11 @@
         <td>
           <div style="padding-top:20px;" class="pull-right">
           <span>
-          <%= link_to "Vote FOR", vote_platform_path(platform, type: "up"), method: "post", class: "btn btn-success", :remote => true%>
+          <%= link_to "Vote FOR", vote_platform_path(platform, type: "up", sort: @sortedBy), method: "post", class: "btn btn-success",  :remote => true%>
         </span>
         <span style="width:50px;"></span>
         <span>
-          <%= link_to "Vote AGAINST", vote_platform_path(platform, type: "down"), method: "post", class: "btn btn-primary", :remote => true %>
+          <%= link_to "Vote AGAINST", vote_platform_path(platform, type: "down", sort: @sortedBy), method: "post", class: "btn btn-primary", :remote => true %>
         </span>
         </div>
         </td>

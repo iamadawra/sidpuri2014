@@ -37,7 +37,7 @@ class PlatformsController < ApplicationController
     @platform = Platform.find(params[:id])
     #Replicate this line in console to update votes
     @platform.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting"
+    redirect_to platforms_path({:sort => params[:sort], :notice => "Thank you for voting"})
   end
 
   # GET /platforms/1
