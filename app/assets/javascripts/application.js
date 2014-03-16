@@ -16,10 +16,11 @@
 //= require jquery.flippy.js
 //= require_tree .
 
-$(function() {
-  $("#platforms .pagination a").bind("click", function(e) {
-    $.getScript(this.href);
-    // alert("YES");
-    e.preventDefault();
-  });
-});
+// AJAX, sadly never worked :(
+// $(function() {
+//   $("#platforms .pagination a").bind("click", function(e) {
+//     $.getScript(this.href);
+//     // alert("YES");
+//     e.preventDefault();
+//   });
+// });
