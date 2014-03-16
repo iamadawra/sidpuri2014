@@ -95,35 +95,9 @@ $(document).ready(function(){
   </span>
 </div>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  </tbody>
-    <% @platforms.each do |platform| %>
-      <tr>
-        <td><%= link_to platform.id, platform_path(platform) %></td>
-        <td><%= platform.name %></td>
-        <td><%= platform.description %></td>
-        <td><%= platform.created_at %></td>
-        <td><%= pluralize platform.reputation_for(:votes).to_i, "vote" %>
-      </td>
-        <td>
-          <%= link_to "Vote FOR", vote_platform_path(platform, type: "up"), method: "post", class: "btn btn-success" %>
-          <%= link_to "Vote AGAINST", vote_platform_path(platform, type: "down"), method: "post", class: "btn btn-primary" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<center>
-  <%= paginate @platforms %>
-</center>
+<div id="platforms">
+  <%= render "platforms" %>
+</div>
+
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:30%; margin-top: 5%; margin-bottom:5%; max-width: 600px; max-height:600px;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba; background-color:white;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>
 
