@@ -6,6 +6,8 @@ Sid2014::Application.routes.draw do
     member { post :vote }
   end
 
+  root :to => "platforms#index"
+
   get "platforms/new" => 'platforms#new', :as => :new
   # The priority is based upon order of creation:
   # first created -> highest priority.
