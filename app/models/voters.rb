@@ -1,4 +1,3 @@
 class Voters < ActiveRecord::Base
-  attr_accessible :ip
-  validates_uniqueness_of :ip
+  attr_accessible :ip, :platform
 end
