@@ -119,10 +119,10 @@ $(document).ready(function(){
 </span>
 <span class="pull-right">
     <%= form_tag platforms_path, :method => "get" do %>
-        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:40px;font-size:20px;" %>
+        <%= text_field_tag :search, params[:search], :placeholder=>"Search Platforms..", :style=>"height:50px;font-size:20px;" %>
     
-    <%= link_to t('.new', :default => t("helpers.links.Add Platform")),
-            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-danger", :style=>"margin-top:0px;"} %>
+    <%= link_to t('.new', :default => t("helpers.links.Suggest New Platform")),
+            new_platform_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => "#modal-window", :class=>"btn btn-lg btn-danger", :style=>"margin-top:0px;margin-bottom:10px;"} %>
     <% end %>
           </h1>
     </span>
@@ -130,8 +130,5 @@ $(document).ready(function(){
 <div id="platforms" class="col-lg-12">
   <%= render :partial => "platformsTable" %>
 </div>
-<center>
-  <%= paginate @platforms %>
-</center>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:30%; margin-top: 5%; margin-bottom:5%; max-width: 600px; max-height:600px;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba; background-color:white;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>
 
