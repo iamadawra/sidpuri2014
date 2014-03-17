@@ -39,9 +39,9 @@ class PlatformsController < ApplicationController
 
     @ipVar = request.remote_ip
     # voterResults = Voters.find(:all, :conditions => ['where ip = ?', "%#{search}%"@ipVar])
-    voterResults = Voters.where('ip ILIKE ? AND platform LIKE ?', "%#{@ipVar}%", params[:id].to_i)
+    voterResults = Voters.where('ip ILIKE ? AND platform = ?', "%#{@ipVar}%", params[:id].to_i)
     if (voterResults.empty?)
-      @newVoter = Voters.new({:ip => @ipVar, :platform => params[:id]}).save
+      @newVoter = Voters.new({:ip => @ipVar, :platform => params[:id].to_i}).save
       value = params[:type] == "up" ? 1 : -1
       @platform = Platform.find(params[:id])
       #Replicate this line in console to update votes
