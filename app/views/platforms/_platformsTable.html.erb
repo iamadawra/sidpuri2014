@@ -5,10 +5,6 @@
       <tr>
         <td style="width:60%">
           <h3><%= platform.name %></h3>
-          <div class="platform-info">
-            <% if !platform.organization.nil? %>
-              <h5>Organization </h5><%= platform.organization if !platform.organization != "" %><%= "None" if platform.organization =="" %><br>
-            <%end%>
             <span style="display:inline;"><h5>Description </h5><%= platform.description %></span>
         </td>
         <td style="width:10%;">
