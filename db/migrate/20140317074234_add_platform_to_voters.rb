@@ -1,5 +1,5 @@
 class AddPlatformToVoters < ActiveRecord::Migration
   def change
-    add_column :voters, :platform, :intger
+    add_column :voters, :platform, :integer
   end
 end
