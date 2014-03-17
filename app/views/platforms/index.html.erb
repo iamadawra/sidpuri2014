@@ -38,7 +38,7 @@ $(document).ready(function(){
 });
 </script>
 <%- model_class = Platform -%>
-<div class="jumbotron" style="height:700px; background-color:white;">
+<div class="jumbotron" style="height:100px;background-color:white;">
   <div class="col-lg-12" style="padding-bottom:20px;padding-top:0px;">
 
     <% flash.each do |name, msg| -%>
@@ -56,30 +56,14 @@ $(document).ready(function(){
       <%end%>
     <% end -%>
   </div>
-  <div class="col-lg-4" style="padding-right:30px;height:250px" id="parent-platform1">
+  <div class="col-lg-12">
     <center>
-    <h2 id="platform1" style="cursor:pointer;margin-top:30%; text-shadow: 0 0 5px white;">Recruiting</h2></center>
-    <p id="platform1-text" style="margin-top:10%;"><small>Job hunting is a daunting process and navigating Callisto shouldn’t be an added bother. As an international student, opportunities I’m eligible for are hard to come by. In an effort to easily identify these limited opportunities and simplify the job hunt process, I have been working on a student-friendly portal that addresses the information gap between students and jobs they’re eligible for, in order to uncomplicate the job-hunt process. </small></p>
-  </div>
-  <div class="col-lg-4">
-    <center>
-      <div id="image-container-1" style="height:300px">
-      <%= image_tag "logo.jpg", {:id=>"logo", :style=>"height:300px;z-index:4;position:relative;"} %>
+      <div id="image-container-1">
+      <%= image_tag "logo.jpg", {:id=>"logo", :style=>"height:250px;z-index:4;position:relative; margin-top:0px;"} %>
       </div>
     </center>
   </div>
-  <div class="col-lg-4" style="padding-left:30px; height:250px" id="parent-platform2">
-    <center>
-    <h2 id="platform2" style="cursor:pointer;margin-top:30%;text-shadow: 0 0 5px white;">Service</h2></center>
-    <p id="platform2-text" style="margin-top:10%;"><small>Cal’s diversity and culture aligns itself with a lot of causes and communities that require volunteers’ support. Service on our campus needs more attention and man power and with that in mind, I’m working on a cohesive system, more use-friendly than CalLink to access all these opportunities. I hope to create easier access to ASUC funding, simplify new member recruitment and enable regular town halls to build on this collaboration and enhance group innovation. </small></p>
-  </div>
   <center>
-  <div class="col-lg-12" style="height:200px"></div>
-  <div class="col-lg-12" style="padding-top:0px; height:100px; margin-top:0px;" id="parent-platform3">
-    <h2 id="platform3" style="cursor:pointer;margin-top:0px;text-shadow: 0 0 5px white;">Crowdsourcing</h2>
-    <p id="platform3-text" style="margin-top:0px;"><small>The ASUC overlooks a very large student population. The concerns of students who aren’t politically galvanized aren’t always heard. I hope to make my third platform democratic from the get-go. It will be chosen by the students. I want to ensure that I represent everyone’s interests and that everyone is encouraged to participate. </small></p>
-  </div>
-  </center>
 </div>
 
 <div class="page-header">
@@ -91,7 +75,7 @@ $(document).ready(function(){
   <table>
     <tr>
       <td style="width:30%;">
-        <%= image_tag "sid.jpg", {:id=>"sid", :style=>"height:300px; border-style: solid; border-width:5px; border-color: #f57a00;-webkit-box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);-moz-box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);"} %>
+        <%= image_tag "sid.jpg", {:id=>"sid", :style=>"height:300px;-webkit-box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);-moz-box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);"} %>
       </td>
       <td style="width:70%;padding-left: 50px;font-size:20px;">
         My name is Siddhant Puri. I’m a junior EECS major. If elected as senator I want to use what I have learned as a Cal student to better community life for everyone. I want to tackle the student body’s concerns from an engineer’s perspective by better integrating technology into campus life.
@@ -99,13 +83,29 @@ $(document).ready(function(){
     </tr>
   </table>
 </div>
-<div style="height:20px"></div>
-
+<div style="height:100px"></div>
+<div class="col-lg-4" style="padding-right:30px;height:250px" id="parent-platform1">
+    <center>
+    <h2 id="platform1" style="cursor:pointer;margin-top:20%; text-shadow: 0 0 5px white;">Recruiting</h2></center>
+    <p id="platform1-text" style="margin-top:10%;font-size:18px;">Job hunting is a daunting process and navigating Callisto shouldn’t be an added bother. As an international student, opportunities I’m eligible for are hard to come by. In an effort to easily identify these limited opportunities and simplify the job hunt process, I have been working on a student-friendly portal that addresses the information gap between students and jobs they’re eligible for, in order to uncomplicate the job-hunt process. </p>
+  </div>
+  <div class="col-lg-4" style="padding-left:30px; height:250px" id="parent-platform3">
+    <center>
+    <h2 id="platform3" style="cursor:pointer;margin-top:20%;text-shadow: 0 0 5px white;">Crowdsourcing</h2></center>
+    <p id="platform3-text" style="margin-top:10%;font-size:18px;">Cal’s diversity and culture aligns itself with a lot of causes and communities that require volunteers’ support. Service on our campus needs more attention and man power and with that in mind, I’m working on a cohesive system, more use-friendly than CalLink to access all these opportunities. I hope to create easier access to ASUC funding, simplify new member recruitment and enable regular town halls to build on this collaboration and enhance group innovation. </p>
+  </div>
+  <div class="col-lg-4" style="padding-left:30px; height:250px" id="parent-platform2">
+    <center>
+    <h2 id="platform2" style="cursor:pointer;margin-top:20%;text-shadow: 0 0 5px white;">Service</h2></center>
+    <p id="platform2-text" style="margin-top:10%; font-size:18px;">Cal’s diversity and culture aligns itself with a lot of causes and communities that require volunteers’ support. Service on our campus needs more attention and man power and with that in mind, I’m working on a cohesive system, more use-friendly than CalLink to access all these opportunities. I hope to create easier access to ASUC funding, simplify new member recruitment and enable regular town halls to build on this collaboration and enhance group innovation.</p>
+  </div>
+<div style="height:300px"></div>
 <div class="page-header">
   <span>
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   </span>
 </div>
+
 
 <%#= button_tag "View Top Platforms", :class => "btn btn-danger"%> 
 <div>
