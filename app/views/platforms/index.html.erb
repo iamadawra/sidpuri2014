@@ -27,14 +27,6 @@ $(document).ready(function(){
     $("#platform3").slideDown();
     $("#platform3-text").slideUp();
   });
-  $("#image-container-1").mouseenter (function(){
-    $("#gf").fadeOut("slow");
-    $("#logo").fadeIn("slow");
-  });
-  $("#image-container-1").mouseleave (function(){
-    $("#logo").fadeOut("slow");
-    $("#gf").fadeIn("slow");
-  });
   $("#topPlatforms").on("click", function (e) { 
     $(this).addClass("active").removeClass("") 
     $("#mostRecent").addClass("").removeClass("active")
@@ -72,7 +64,6 @@ $(document).ready(function(){
   <div class="col-lg-4">
     <center>
       <div id="image-container-1" style="height:300px">
-      <%= image_tag "gf-white.jpg", {:id=>"gf", :style=>"height:300px;z-index:5;position:absolute;"} %>
       <%= image_tag "logo.jpg", {:id=>"logo", :style=>"height:300px;z-index:4;position:relative;"} %>
       </div>
     </center>
@@ -93,7 +84,26 @@ $(document).ready(function(){
 
 <div class="page-header">
   <span>
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+  <h1>About Sid Puri</h1>
+  </span>
+</div>
+<div>
+  <table>
+    <tr>
+      <td style="width:30%;">
+        <%= image_tag "sid.jpg", {:id=>"sid", :style=>"height:300px; border-style: solid; border-width:5px; border-color: #f57a00;-webkit-box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);-moz-box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);box-shadow: 30px 10px 29px 0px rgba(0,0,0,0.75);"} %>
+      </td>
+      <td style="width:70%;padding-left: 50px;font-size:20px;">
+        My name is Siddhant Puri. I’m a junior EECS major. If elected as senator I want to use what I have learned as a Cal student to better community life for everyone. I want to tackle the student body’s concerns from an engineer’s perspective by better integrating technology into campus life.
+      </td>
+    </tr>
+  </table>
+</div>
+<div style="height:20px"></div>
+
+<div class="page-header">
+  <span>
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
   </span>
 </div>
 
