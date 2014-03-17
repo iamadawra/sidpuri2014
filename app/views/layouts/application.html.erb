@@ -9,6 +9,7 @@
   <%= javascript_include_tag 'rails.js' %>
   <%= javascript_include_tag "jquery.flippy.js" %>
   <%= favicon_link_tag 'favicon.jpg' %>
+  <%= analytics_init if Rails.env.production? %>
   <%= csrf_meta_tags %>
 </head>
 <body>
