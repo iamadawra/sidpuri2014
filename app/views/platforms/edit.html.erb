@@ -2,4 +2,47 @@
 <div class="page-header">
   <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
 </div>
-<%= render :partial => 'form' %>
+<div class="modal-body">
+  <%= form_for @platform, {:class => 'form-horizontal', :id=>"platform-form"} do |f| %>
+      <div class="control-group">
+	    <%= f.label :email, "Your Berkeley Email *", :class => 'control-label' %>
+	    <span class="control-group">
+	      <%= @platform.email %>
+	    </span>
+	    <span class="help-block" style="padding-left:8%; padding-right:10%">Don't worry, we will not disclose your email address or store it! It is simply to verify that you are a Berkeley student.</span>
+	  </div>
+	  <div style="height:20px;"></div>
+	  <div class="control-group">
+	    <%= f.label :name, "Your Platform Name *", :class => 'control-label' %>
+	    <span class="controls">
+	      <%= f.text_field :name, :class => 'text_field' %>
+	    </span>
+	  </div>
+	  <div style="height:20px;"></div>
+	  <div class="control-group">
+	    <%= f.label :organization, "Organization (if any)", :class => 'control-label' %>
+	    <span class="controls">
+	      <%= f.text_field :organization, :class => 'text_field' %>
+	    </span>
+	  </div>
+	  <div style="height:20px;"></div>
+	  <div class="control-group">
+	    <%= f.label :description, "Description *", :class => 'control-label' %>
+	    <span class="controls">
+	      <%= f.text_area :description, {:class => 'form-control' ,:rows=>'3', :placeholder=>"Briefly describe your platform.."} %>
+	    </span>
+	  </div>
+	  <div style="height:20px;"></div>
+	  <div class="form-actions">
+	  	<center>
+	  	<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	                platforms_path, :class => 'btn btn-default' %>
+	    <%= f.submit nil, :class => 'btn btn-danger' %>
+	    </center>
+	  </div>
+	  <div style="margin-top:15px;" class="help-block">
+	  	* - Required Fields
+	  </div>
+  <% end %>
+</div>
+
