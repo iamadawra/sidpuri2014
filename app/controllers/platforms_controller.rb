@@ -33,11 +33,26 @@ class PlatformsController < ApplicationController
   end
 
   def vote
-    value = params[:type] == "up" ? 1 : -1
-    @platform = Platform.find(params[:id])
-    #Replicate this line in console to update votes
-    @platform.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to platforms_path({:sort => params[:sort], :notice => "Thank you for voting"})
+    # @sortedBy = "platform"
+    # @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
+    # @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)
+
+    @ipVar = request.remote_ip
+    # voterResults = Voters.find(:all, :conditions => ['where ip = ?', "%#{search}%"@ipVar])
+    voterResults = Voters.where('ip ILIKE ?', "%#{@ipVar}%")
+    if (voterResults.empty?)
+      @newVoter = Voters.new({:ip => @ipVar}).save
+      value = params[:type] == "up" ? 1 : -1
+      @platform = Platform.find(params[:id])
+      #Replicate this line in console to update votes
+      @platform.add_or_update_evaluation(:votes, value, current_user)
+      redirect_to platforms_path({:sort => params[:sort], :notice => "Thank you for voting"})
+    else
+      flash[:error] = "Sorry, you can only vote once!"
+      # redirect_to :action => "index"
+      redirect_to platforms_path({:sort => params[:sort], :notice => "Sorry, you can only vote once!"})
+    end
+
   end
 
   # GET /platforms/1
