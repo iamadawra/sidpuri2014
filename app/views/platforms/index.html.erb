@@ -35,10 +35,12 @@ $(document).ready(function(){
     $(this).addClass("active").removeClass("") 
     $("#topPlatforms").addClass("").removeClass("active")
   })
-  $("#platforms").css({"z-index":3,"opacity":0.3});
+  
+  $("#platforms").css({"z-index":3,"opacity":0.05});
   $("#platforms *").attr("disabled", "disabled").off('click');
-  $("#platformNav").css({"z-index":3,"opacity":0.3});
+  $("#platformNav").css({"z-index":3,"opacity":0.05});
   $("#platformNav *").attr("disabled", "disabled").off('click');
+  $("#parent-platform2").css({"z-index":4,"opacity":5});
 });
 </script>
 <%- model_class = Platform -%>
@@ -104,12 +106,6 @@ $(document).ready(function(){
     <h2 id="platform2" style="cursor:pointer;margin-top:20%;text-shadow: 0 0 5px white;">Service</h2></center>
     <p id="platform2-text" style="margin-top:10%; font-size:18px;">Cal’s diversity and culture aligns itself with a lot of causes and communities that require volunteers’ support. Service on our campus needs more attention and man power and with that in mind, I’m working on a cohesive system, more user-friendly than CalLink to access all these opportunities. I hope to create easier access to ASUC funding, simplify new member recruitment and enable regular town halls to build on this collaboration and enhance group innovation.</p>
   </div>
-
-  <div class="col-lg-12" style="padding-left:30px; height:250px" id="parent-platform2">
-    <center>
-    <h2 id="platform2" style="cursor:pointer;text-shadow: 0 0 5px white;">Berkeley has Decided</h2></center>
-    <p id="platform2-text" style="font-size:18px;">Berkeley has decided and the most feasible platform has been selected! My new efforts will be towards extending late night study spaces and have a late night cafe on campus. The Sid2014 staff and I have been ended up in more late night study sessions than we care to admit and we understand the need to have more late night study spaces. Thank you for your votes and suggestions, Cal Bears! We will update you with a game plan!</p>
-  </div>
 <div style="height:300px"></div>
 <div class="page-header">
   <span>
@@ -141,5 +137,10 @@ $(document).ready(function(){
 <div id="platforms" class="col-lg-12">
   <%= render :partial => "platformsTable" %>
 </div>
+<div class="col-lg-12" style="margin-top:-900px;z-index:2;padding-left:30px; height:250px" id="parent-platform2">
+    <center>
+    <h2 id="platform2" style="cursor:pointer;text-shadow: 0 0 5px white;">Berkeley has Decided</h2></center>
+    <p id="platform2-text" style="font-size:18px;">Berkeley has decided and the most feasible platform has been selected! My new efforts will be towards extending late night study spaces and have a late night cafe on campus. The Sid2014 staff and I have been ended up in more late night study sessions than we care to admit and we understand the need to have more late night study spaces. Thank you for your votes and suggestions, Cal Bears! We will update you with a game plan!</p>
+  </div>
 <div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="margin-left:30%; margin-top: 5%; margin-bottom:5%; max-width: 600px; max-height:600px;    -moz-box-shadow: -2px -5px 32px #bab4ba;-webkit-box-shadow: -2px -5px 32px #bab4ba; background-color:white;box-shadow: -2px -5px 32px #bab4ba;overflow:hidden; border-radius:15px;  "></div>
 
