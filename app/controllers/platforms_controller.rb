@@ -5,6 +5,7 @@ class PlatformsController < ApplicationController
   # GET /platforms.json
   def index
     # Default sort by platform
+    flash[:success] = "Voting is now open, Cal Bears! #{view_context.link_to('Click here to vote now', 'http://vote.berkeley.edu/asucelection')}".html_safe
     @sortedBy = "platform"
     @topics = Platform.search(params[:search]).find_with_reputation(:votes, :all, order: "votes desc")
     @platforms = Kaminari.paginate_array(@topics).page(params[:page]).per(10)

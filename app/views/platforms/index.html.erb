@@ -52,7 +52,7 @@ $(document).ready(function(){
       <%= content_tag :div, error_string.html_safe, class: name %>
       <% elsif name == :success %>
         <% name = "alert alert-dismissable alert-success" %>
-        <%= content_tag :div, msg, class: name %>
+        <%= content_tag :div, msg, class: name, style: "font-size:20px;font-style:helvetica;padding-left:25%;" %>
       <%end%>
     <% end -%>
   </div>
